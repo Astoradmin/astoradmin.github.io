@@ -1,0 +1,339 @@
+/*
+Template: LAWGIST – Attorney & Lawyers HTML Template
+Author: RRDevs
+Author URI: https://themeforest.net/user/rrdevs
+Description: Attorney & Lawyers HTML Template
+Version: 1.0.0
+*/
+
+/*
+=================================
+|***    Table of contents:   ***|
+=================================
+
+Main Style file-> assets/css/style.css 
+
+All the SCSS File in SCSS Folder of Assets Folder. You can read the doc file also for better understand.
+
+// BASIC 
+@import 'basic';
+
+// MIXIN
+@import 'variables';
+
+// TYPOGRAPHY
+@import 'typography';
+
+// MIX
+@import 'mix';
+
+// HELPER
+@import 'helper';
+
+// ICON FONTS
+@import 'icon';
+
+// ANIMATION
+@import 'animation';
+
+// Button 
+@import 'btn';
+
+// Variables 
+@import 'variables';
+
+// Preloader 
+@import 'preloader';
+
+/* ----------------------------------
+    Template Section Styles
+ ------------------------------------*/
+
+ /* // Menu - Header Section 
+ @import 'header';
+ 
+ // Hero Slide - Section 
+ @import 'hero';
+ 
+ // Section Title - Heading 
+ @import 'section';
+ 
+ // About - Section 
+ @import 'about';
+ 
+ // Features - Section 
+ @import 'features';
+ 
+ // services - Section 
+ @import 'services';
+ 
+ // testimonial - Section 
+ @import 'testimonial';
+ 
+ // Portfolio - Cases - Section 
+ @import 'project';
+ 
+ // Price Table - Section 
+ @import 'price';
+ 
+ // Call To Action - Section 
+ @import 'cta';
+ 
+ // team - Section 
+ @import 'team';
+ 
+ // funfact - Section 
+ @import 'funfact';
+ 
+ // Download - Section 
+ @import 'carousel';
+ 
+ // FAQ - Section 
+ @import 'faq';
+ 
+ // Blog - Section 
+ @import 'blog';
+ 
+ // Contact Us - Section 
+ @import 'contact';
+ 
+ // footer - Section 
+ @import 'footer'; */
+
+/* Typography */
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: calc(1.8rem + 1vw);
+  margin-bottom: 2rem;
+}
+
+/* Common Elements */
+.btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.form-control {
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/img/pexels-olly-789822.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: calc(2rem + 1.5vw);
+}
+
+.hero-features p {
+  font-size: calc(1rem + 0.3vw);
+}
+
+.hero-features .btn {
+  white-space: normal;
+  max-width: 100%;
+  font-size: calc(1rem + 0.2vw);
+}
+
+.hero-features .btn-light:hover {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Problem Section */
+.problem-section {
+  background-color: #f8f9fa;
+}
+
+.problem-item {
+  font-size: calc(1.1rem + 0.2vw);
+}
+
+.warning-icon {
+  color: #dc3545;
+  font-size: 1.5em;
+}
+
+.good-news {
+  font-size: calc(1.2rem + 0.3vw);
+  background-color: #28a745;
+  color: white;
+  border-radius: 4px;
+}
+
+/* Feature Items */
+.feature-item h4 {
+  font-size: calc(1.2rem + 0.3vw);
+}
+
+.feature-item p {
+  font-size: calc(1rem + 0.2vw);
+}
+
+/* Process Steps */
+.step-item h4 {
+  font-size: calc(1.2rem + 0.3vw);
+}
+
+.step-item p {
+  font-size: calc(1rem + 0.2vw);
+}
+
+/* Eligibility Section */
+.eligibility-box {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.eligibility-box h3 {
+  font-size: calc(1.3rem + 0.3vw);
+}
+
+.eligibility-box li {
+  font-size: calc(1rem + 0.2vw);
+}
+
+.eligibility-box.good {
+  border-left: 4px solid #28a745;
+}
+
+.eligibility-box.bad {
+  border-left: 4px solid #dc3545;
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.cta-section .section-title,
+.cta-section .lead {
+  color: white;
+}
+
+.cta-section .lead {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.signup-button {
+  font-size: calc(1rem + 0.2vw);
+  background-color: #ffc107;
+  color: #000;
+  border: 2px solid #ffc107;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  height: calc(3.5rem + 2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-button:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* Form Controls */
+.form-control-lg {
+  height: calc(3.5rem + 2px);
+  padding: 0.75rem 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: calc(1.5rem + 1vw);
+  }
+  
+  .hero-section h1 {
+    font-size: calc(1.8rem + 1vw);
+  }
+  
+  .feature-item, .step-item {
+    padding: 1rem;
+  }
+}
+
+/* Utility Classes */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+/* Pricing Section */
+.pricing-section {
+  background-color: #f8f9fa;
+}
+
+.pricing-box {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.pricing-intro {
+  font-size: calc(1.1rem + 0.2vw);
+  color: #0d6efd;
+  margin-bottom: 2rem;
+}
+
+.pricing-features {
+  margin: 2rem 0;
+}
+
+.pricing-features li {
+  font-size: calc(1rem + 0.1vw);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: start;
+}
+
+.pricing-features li::before {
+  content: "✅";
+  margin-right: 0.75rem;
+  font-size: 1.2em;
+}
+
+.price-tag {
+  font-size: calc(1.5rem + 0.5vw);
+  font-weight: 700;
+  color: #0d6efd;
+  margin: 2rem 0;
+}
+
+.price-note {
+  font-size: 1rem;
+  color: #6c757d;
+  border-top: 1px solid #dee2e6;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+
+
