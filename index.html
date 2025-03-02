@@ -59,21 +59,176 @@
         background-color: #1a1a1a;  /* Sötét háttérszín */
       }
       .hero-section .btn-light {
-        background-color: #ffc107;
+        background-color: #A48111;
         color: #ffffff;
-        border: none;
-        font-weight: 500;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s ease;
       }
       .hero-section .btn-light:hover {
-        background-color: #ffc107;
+        background-color: #A48111;
         color: #ffffff;
-        transform: translateY(-2px);
       }
       /* Process section CTA gomb */
       .process-section .btn-light:hover {
         transform: translateY(-2px);
+      }
+      /* Cookie banner stílus */
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(44, 62, 80, 0.95);
+        color: white;
+        padding: 1rem;
+        display: none;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .cookie-banner.show {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .cookie-banner .btn {
+        margin-left: 1rem;
+        white-space: nowrap;
+      }
+
+      :root {
+        --gold: #A48111;    /* Új arany szín */
+      }
+
+      /* Arany gombok stílusa */
+      .btn-light, 
+      .btn-elegant {
+        background-color: #A48111 !important;
+        color: #ffffff !important;  /* Fehér szöveg a jobb kontraszt érdekében */
+        border: none;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+      }
+
+      .btn-light:hover,
+      .btn-elegant:hover {
+        background-color: #A48111 !important;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Háttérképes szekciók */
+      .bg-image-section {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+
+
+      .bg-image-section > * {
+        position: relative;
+      }
+
+      .section-1, .section-2, .section-3, .section-4, .section-6 {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .section-1 {
+        background-image: url('./assets/img/bg_03.png');
+      }
+
+      .section-2 {
+        background-image: url('bg_03.png');
+      }
+
+      .section-3 {
+        background-image: url('b3_04.png');
+      }
+
+      .section-4 {
+        background-image: url('./assets/img/bg_03.png');
+      }
+
+      .section-6 {
+        background-image: url('./assets/img/bg_03.png');
+      }
+
+      .section-5 {
+        background-image: url('cta_bh.png');
+      }
+
+      .section-7 {
+        background-image: url('./assets/img/cta_bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .check-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background-color: #B69D74;
+        border-radius: 50%;
+        margin-right: 10px;
+        color: white;
+      }
+
+      .elegant-icon {
+        color: #B69D74;
+        font-size: 1.5em;
+        line-height: 1;
+      }
+
+      .elegant-icon.rotate {
+        transform: rotate(180deg);
+        display: inline-block;
+      }
+
+      .eligibility-box.good {
+        border-left: 4px solid #B69D74;
+      }
+
+      .eligibility-box.bad {
+        border-left: 4px solid #B69D74;
+      }
+
+      .elegant-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background-color: #B69D74;
+        color: white;
+        border-radius: 50%;
+        margin-right: 10px;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-weight: 600;
+        line-height: 1;
+        padding-bottom: 2px; /* Finomhangolás a vertikális középre igazításhoz */
+      }
+
+      .cookie-banner button {
+        background-color: #B69D74;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 24px;  /* Megnövelt padding */
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .cookie-banner button:hover {
+        background-color: #a38a64;
       }
     </style>
   </head>
@@ -98,26 +253,26 @@
     <!-- Hero Section End -->
 
     <!-- Problem Section Start -->
-    <section class="problem-section py-5">
+    <section class="problem-section py-5 bg-image-section section-1">
       <div class="container px-4">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h2 class="section-title text-danger mb-4 text-center">Tudod, hogy nem itt van a helyed... de hogyan lépj tovább?</h2>
-            <div class="problems-list p-4 bg-white rounded shadow-sm">
+            <h2 class="section-title text-center mb-4" style="color: #2c3e50;">Tudod, hogy nem itt van a helyed... de hogyan lépj tovább?</h2>
+            <div class="problems-list p-4 rounded" style="background: transparent;">
               <p class="problem-item mb-4 d-flex align-items-start">
-                <span class="warning-icon me-3">⚠️</span>
+                <span class="elegant-icon me-3">❧</span>
                 <span><strong>Kiégettnek érzed magad?</strong><br>Reggelente egyre nehezebben mész be dolgozni, és már a hétvégék sem elég hosszúak a feltöltődéshez?</span>
               </p>
               <p class="problem-item mb-4 d-flex align-items-start">
-                <span class="warning-icon me-3">⚠️</span>
+                <span class="elegant-icon me-3">❧</span>
                 <span><strong>Félsz a változástól?</strong><br>Aggódsz, hogy ha váltasz, anyagilag nehéz helyzetbe kerülsz, vagy nem találod meg a helyed az új területen?</span>
               </p>
               <p class="problem-item mb-4 d-flex align-items-start">
-                <span class="warning-icon me-3">⚠️</span>
+                <span class="elegant-icon me-3">❧</span>
                 <span><strong>Tanácstalan vagy?</strong><br>Nem tudod, milyen lehetőségeid vannak, és merre indulj el, hogy megtaláld azt, amit igazán szeretnél csinálni?</span>
               </p>
-                </div>
-            <p class="good-news lead mt-4 text-center p-3">
+            </div>
+            <p class="good-news lead mt-4 text-center p-3" style="background-color: #E5D3B3; border-left: 4px solid #A48111; color: #2c3e50;">
               <strong>A jó hír:</strong> Nem kell azonnal mindent felrúgnod ahhoz, hogy új irányt találj. Egy átgondolt terv segít, hogy biztos alapokkal indulj el.
             </p>
           </div>
@@ -127,59 +282,59 @@
     <!-- Problem Section End -->
 
     <!-- Solution Section Start -->
-    <section class="solution-section py-5 bg-light">
+    <section class="solution-section py-5 bg-image-section section-2">
       <div class="container px-4">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h2 class="section-title text-center mb-5">Hogyan segítek?</h2>
+            <h2 class="section-title text-center mb-5" style="color: #2c3e50;">Hogyan segítek?</h2>
             <div class="solution-features">
               <div class="feature-item mb-4 p-3">
-                <h4>✅ Felméred a lehetőségeidet</h4>
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Felméred a lehetőségeidet</h4>
                 <p>Mik az erősségeid és milyen irányba érdemes indulnod?</p>
-            </div>
+              </div>
               <div class="feature-item mb-4 p-3">
-                <h4>✅ Megtervezed a lépéseket</h4>
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Megtervezed a lépéseket</h4>
                 <p>Mit kell tenned a zökkenőmentes váltásért?</p>
-          </div>
+              </div>
               <div class="feature-item mb-4 p-3">
-                <h4>✅ Minimalizálod a kockázatot</h4>
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Minimalizálod a kockázatot</h4>
                 <p>Ne ugorj bele semmibe anélkül, hogy alaposan megvizsgálnád az opcióidat!</p>
-            </div>
+              </div>
               <div class="feature-item mb-4 p-3">
-                <h4>✅ Felkészülsz a váltásra</h4>
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Felkészülsz a váltásra</h4>
                 <p>Ha kell, készségfejlesztés, interjúfelkészítés, kapcsolatépítés.</p>
-          </div>
+              </div>
             </div>
           </div>
-            </div>
+        </div>
       </div>
     </section>
     <!-- Solution Section End -->
 
     <!-- Eligibility Section Start -->
-    <section class="eligibility-section py-5 bg-light">
+    <section class="eligibility-section py-5 section-7">
       <div class="container px-4">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h2 class="section-title text-center mb-5">Kinek való és kinek nem?</h2>
+            <h2 class="section-title text-center mb-5" style="color: #2c3e50;">Kinek való és kinek nem?</h2>
               <div class="row">
-              <div class="col-md-6 mb-4 mb-md-0">
-                <div class="eligibility-box good p-4 h-100">
-                  <h3 class="mb-3">✅ Neked való, ha:</h3>
+              <div class="col-md-6 mb-4">
+                <div class="eligibility-box good p-4 h-100" style="min-height: 300px;">
+                  <h3 class="mb-3">Neked való, ha:</h3>
                   <ul class="list-unstyled">
-                    <li class="mb-3">✔️ Szeretnél váltani, de átgondoltan, kevesebb kockázattal.</li>
-                    <li class="mb-3">✔️ Hajlandó vagy időt és energiát fektetni a folyamatba.</li>
-                    <li class="mb-3">✔️ Kíváncsi vagy, milyen lehetőségeid vannak, és szeretnéd őket objektíven értékelni.</li>
+                    <li class="mb-3"><span class="elegant-icon me-3">❧</span> Szeretnél váltani, de átgondoltan, kevesebb kockázattal.</li>
+                    <li class="mb-3"><span class="elegant-icon me-3">❧</span> Hajlandó vagy időt és energiát fektetni a folyamatba.</li>
+                    <li class="mb-3"><span class="elegant-icon me-3">❧</span> Kíváncsi vagy, milyen lehetőségeid vannak, és szeretnéd őket objektíven értékelni.</li>
                   </ul>
                   </div>
                 </div>
-                <div class="col-md-6">
-                <div class="eligibility-box bad p-4 h-100">
-                  <h3 class="mb-3">❌ Nem neked való, ha:</h3>
+                <div class="col-md-6 mb-4">
+                <div class="eligibility-box bad p-4 h-100" style="min-height: 300px;">
+                  <h3 class="mb-3">Nem neked való, ha:</h3>
                   <ul class="list-unstyled">
-                    <li class="mb-3">⛔ Azonnali megoldást akarsz, mindenféle munka nélkül.</li>
-                    <li class="mb-3">⛔ Nem vagy hajlandó befektetni időt önmagad fejlesztésébe.</li>
-                    <li class="mb-3">⛔ Már eldöntötted, hogy felmondasz, de nincs semmi terved a következő lépésre.</li>
+                    <li class="mb-3"><span class="elegant-icon rotate me-3">❧</span> Azonnal akarsz váltani, nincs időd a tervezésre.</li>
+                    <li class="mb-3"><span class="elegant-icon rotate me-3">❧</span> Nem vagy hajlandó energiát fektetni az önismeretbe.</li>
+                    <li class="mb-3"><span class="elegant-icon rotate me-3">❧</span> Kész megoldást vársz tőlem, ami garantálja a sikert.</li>
                   </ul>
                 </div>
               </div>
@@ -188,7 +343,7 @@
         </div>
       </div>
       <div class="text-center mt-5">
-        <a href="#jelentkezes" class="btn btn-light btn-lg px-4 py-3" style="background-color: #ffc107; color: #ffffff; border: none; font-weight: 500; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease;">Jelentkezz egy rövid űrlap kitöltésével!</a>
+        <a href="#jelentkezes" class="btn btn-light btn-lg px-4 py-3" style="background-color: #FFD700; color: #1a1a1a; border: none; font-weight: 600; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">Jelentkezz egy rövid űrlap kitöltésével!</a>
       </div>
     </section>
     <!-- Eligibility Section End -->
@@ -198,26 +353,26 @@
       <div class="container px-4">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h2 class="section-title text-center mb-5">Hogyan működik?</h2>
-            <div class="process-steps">
+            <h2 class="section-title text-center mb-5" style="color: #2c3e50;">Hogyan működik?</h2>
+            <div class="process-steps" style="background: transparent;">
               <div class="step-item mb-4 p-3">
-                <h4>1️⃣ Jelentkezés</h4>
+                <h4><span class="elegant-number">1</span> Jelentkezés</h4>
                 <p>Az első lépés egy rövid kérdőív kitöltése, ahol megismerheted a folyamatot és megoszthatod velem a jelenlegi helyzeted, céljaid. Ez segít eldönteni, hogy tudunk-e együtt dolgozni.</p>
-            </div>
+              </div>
               <div class="step-item mb-4 p-3">
-                <h4>2️⃣ Előszűrés</h4>
+                <h4><span class="elegant-number">2</span> Előszűrés</h4>
                 <p>Alaposan áttekintem a jelentkezésed, és ha úgy látom, hogy tudok segíteni a céljaid elérésében, felveszem veled a kapcsolatot. Fontos, hogy csak olyan ügyfelekkel dolgozom, akiknek valóban hasznos lehet a programom.</p>
-          </div>
+              </div>
               <div class="step-item mb-4 p-3">
-                <h4>3️⃣ Első konzultáció</h4>
+                <h4><span class="elegant-number">3</span> Első konzultáció</h4>
                 <p>Az első személyes beszélgetés során részletesen feltérképezzük a jelenlegi helyzeted, karriercéljaid és a változásra való készséged. Közösen meghatározzuk azokat a konkrét lépéseket, amelyekkel elindulhatsz az új karrier felé.</p>
-        </div>
+              </div>
               <div class="step-item mb-4 p-3">
-                <h4>4️⃣ Folyamatos támogatás</h4>
+                <h4><span class="elegant-number">4</span> Folyamatos támogatás</h4>
                 <p>A 6 alkalmas képzés során személyre szabott feladatokkal, gyakorlatokkal és rendszeres visszajelzésekkel segítem a fejlődésed. Minden alkalommal konkrét célokat tűzünk ki és értékeljük az előrehaladást. Közben email-es támogatást is kapsz.</p>
               </div>
               <div class="step-item mb-4 p-3">
-                <h4>5️⃣ Döntés és cselekvés</h4>
+                <h4><span class="elegant-number">5</span> Döntés és cselekvés</h4>
                 <p>A program végére tiszta képed lesz a lehetőségeidről, és konkrét akcióterved arról, hogyan lépj tovább. Segítek az önéletrajzod és LinkedIn profilod optimalizálásában, felkészítelek az állásinterjúkra, és támogatlak a kapcsolatépítésben is.</p>
               </div>
             </div>
@@ -227,34 +382,52 @@
     </section>
     <!-- Process Section End -->
 
-    <!-- Pricing Section Start -->
-    <section class="pricing-section py-5">
+    <!-- Pricing Section -->
+    <section class="pricing-section py-5 bg-image-section section-4">
       <div class="container px-4">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h2 class="section-title text-center mb-4">Árazás – Karrierváltási képzés</h2>
+            <h2 class="section-title text-center mb-4" style="color: #2c3e50;">Árazás – Karrierváltási képzés</h2>
             <div class="pricing-box">
-              <p class="pricing-intro text-center">
-                💡 6 alkalmas képzéscsomag – ahol átgondoltan, felkészülten tervezheted meg a karrierváltásodat, kevesebb kockázattal.
+              <p class="pricing-intro text-center" style="color: #2c3e50;">
+                6 alkalmas képzéscsomag – ahol átgondoltan, felkészülten tervezheted meg a karrierváltásodat, kevesebb kockázattal.
               </p>
-              
-              <h3 class="h4 mb-4">Mit kapsz?</h3>
-              <ul class="pricing-features list-unstyled">
-                <li>6 egyéni konzultáció (alkalmanként 60 perc)</li>
-                <li>Lehetőségeid és erősségeid feltérképezése</li>
-                <li>Lépésről lépésre megtervezett váltási stratégia</li>
-                <li>Önéletrajz és LinkedIn profil átnézése, fejlesztése</li>
-                <li>Állásinterjú felkészítés, gyakorlás</li>
-                <li>Folyamatos támogatás a 6 alkalom alatt</li>
-              </ul>
 
-              <div class="price-tag text-center">
-                💰 Ár: 149.000 Ft <small class="text-muted">(6 alkalomra)</small>
+              <div class="pricing-details mb-4" style="color: #2c3e50;">
+                <h3 class="h4 mb-3">Mit kapsz?</h3>
+                <p class="mb-2 d-flex align-items-center">
+                  <img src="./assets/img/certified.svg" alt="certified icon" class="me-2" style="width: 20px; height: 20px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">
+                  6 egyéni konzultáció (alkalmanként 60 perc)
+                </p>
+                <p class="mb-2 d-flex align-items-center">
+                  <img src="./assets/img/certified.svg" alt="certified icon" class="me-2" style="width: 20px; height: 20px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">
+                  Lehetőségeid és erősségeid feltérképezése
+                </p>
+                <p class="mb-2 d-flex align-items-center">
+                  <img src="./assets/img/certified.svg" alt="certified icon" class="me-2" style="width: 20px; height: 20px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">
+                  Lépésről lépésre megtervezett váltási stratégia
+                </p>
+                <p class="mb-2 d-flex align-items-center">
+                  <img src="./assets/img/certified.svg" alt="certified icon" class="me-2" style="width: 20px; height: 20px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">
+                  Önéletrajz és LinkedIn profil átnézése, fejlesztése
+                </p>
+                <p class="mb-2 d-flex align-items-center">
+                  <img src="./assets/img/certified.svg" alt="certified icon" class="me-2" style="width: 20px; height: 20px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">
+                  Állásinterjú felkészítés, gyakorlás
+                </p>
+                <p class="mb-2 d-flex align-items-center">
+                  <img src="./assets/img/certified.svg" alt="certified icon" class="me-2" style="width: 20px; height: 20px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">
+                  Folyamatos támogatás a 6 alkalom alatt
+                </p>
               </div>
 
-              <div class="price-note">
-                📌 További konzultáció igény szerint: Ha a 6 alkalom után még szeretnél folytatni, minden további alkalom ára 22.000 Ft / óra.
-                      </div>
+              <div class="price-tag text-center" style="color: #2c3e50;">
+                Ár: 149.000 Ft <small class="text-muted">(6 alkalomra)</small>
+              </div>
+
+              <div class="price-note" style="color: #2c3e50;">
+                További konzultáció igény szerint: Ha a 6 alkalom után még szeretnél folytatni, minden további alkalom ára 22.000 Ft / óra.
+              </div>
             </div>
           </div>
         </div>
@@ -263,23 +436,72 @@
     <!-- Pricing Section End -->
 
     <!-- CTA Section Start -->
-    <section id="jelentkezes" class="cta-section py-5">
+    <section id="jelentkezes" class="cta-section py-5" style="background-color: #2c3e50; color: white;">
       <div class="container px-4">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto text-center">
-            <h2 class="section-title mb-4">Készen állsz, hogy megtervezd a karrierváltásodat?</h2>
-            <p class="lead mb-4">Töltsd ki az előszűrő kérdőívet, és nézzük meg, hogy tudunk-e együtt dolgozni!</p>
+            <h2 class="section-title mb-4 text-white">Készen állsz, hogy megtervezd a karrierváltásodat?</h2>
+            <p class="lead mb-4 text-white">Töltsd ki az előszűrő kérdőívet, és nézzük meg, hogy tudunk-e együtt dolgozni!</p>
             
-            <a href="https://forms.gle/Nw7Gwy9nobiGxE6t6" class="btn btn-light btn-lg px-4 py-3" style="background-color: #ffc107; color: #ffffff; border: none; font-weight: 500; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease;">Jelentkezem a képzésre</a>
+            <a href="https://forms.gle/Nw7Gwy9nobiGxE6t6" class="btn btn-elegant btn-lg px-4 py-3" style="background-color: #A48111; color: #ffffff; border: none; font-weight: 600; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">Jelentkezem a képzésre</a>
           </div>
         </div>
       </div>
     </section>
     <!-- CTA Section End -->
 
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div>Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében. Az oldal használatával elfogadod a cookie-k használatát.</div>
+        <div>
+            <button class="btn btn-elegant" onclick="acceptCookies()">Elfogadom</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
+    <script>
+        // Cookie kezelő függvények
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function acceptCookies() {
+            setCookie('cookieConsent', 'accepted', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+            
+            // Google Analytics inicializálása csak elfogadás után
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ELJW9RPEQZ');
+        }
+
+        // Cookie banner megjelenítése, ha még nincs elfogadva
+        window.onload = function() {
+            if (!getCookie('cookieConsent')) {
+                document.getElementById('cookieBanner').classList.add('show');
+            }
+        }
+    </script>
   </body>
 </html>
