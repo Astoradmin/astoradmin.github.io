@@ -390,16 +390,24 @@
                     <div style="font-size: 1.5rem; color: #2c3e50; font-weight: 600;">59.900 Ft / év</div>
                     <div style="font-size: 1rem; color: #B69D74;">(Összehasonlításként: kb. 4 alkalom díja egy magán pszichológusnál.)</div>
                     <div style="font-size: 1rem; color: #2c3e50; margin-top: 0.5rem;">12 hónap teljes hozzáférés</div>
-                    <a href="https://buy.stripe.com/5kQeVc3JxawK29Bg7j4c800" class="btn btn-elegant btn-sm mt-3 px-3 py-2" style="font-size: 1rem;">Éves előfizetés vásárlása</a>
+                    <div class="form-check d-flex justify-content-center align-items-center mt-3 mb-2">
+                      <input class="form-check-input" type="checkbox" id="acceptTermsYearly">
+                      <label class="form-check-label ms-2" for="acceptTermsYearly" style="font-size: 0.95rem; color: #6c757d;">A vásárlással elfogadod az <a href="aszf.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Általános Szerződési Feltételeket</a> és az <a href="adatvedelem.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Adatkezelési tájékoztatót</a>.</label>
+                    </div>
+                    <a href="https://buy.stripe.com/5kQeVc3JxawK29Bg7j4c800" id="btnYearly" class="btn btn-elegant btn-sm mt-1 px-3 py-2" style="font-size: 1rem; pointer-events: none; opacity: 0.6;">Éves előfizetés vásárlása</a>
                   </div>
                 </div>
                 <div class="col-md-5 mb-3">
                   <div class="price-tag text-center p-4" style="background: #f5f7fa; border-radius: 8px; border: 1px solid #e5d3b3;">
                     <h4 class="mb-2" style="color: #A48111;">Negyedéves előfizetés</h4>
                     <div style="font-size: 1.5rem; color: #2c3e50; font-weight: 600;">18.000 Ft / 3 hónap</div>
-                    <div style="font-size: 1rem; color: #B69D74;">Ennyiért körülbelül 10 kávét vennél egy kávézóban – most viszont a jövődbe fektetsz.</div>
+                    <div style="font-size: 1rem; color: #B69D74;">(Összehasonlításként: napi egy latte egy hónapon át a munkahelyi büféből.)</div>
                     <div style="font-size: 1rem; color: #2c3e50; margin-top: 0.5rem;">3 hónap teljes hozzáférés</div>
-                    <a href="https://buy.stripe.com/bJe8wO5RFawKdSj9IV4c802" class="btn btn-elegant btn-sm mt-3 px-3 py-2" style="font-size: 1rem;">Negyedéves előfizetés vásárlása</a>
+                    <div class="form-check d-flex justify-content-center align-items-center mt-3 mb-2">
+                      <input class="form-check-input" type="checkbox" id="acceptTermsQuarterly">
+                      <label class="form-check-label ms-2" for="acceptTermsQuarterly" style="font-size: 0.95rem; color: #6c757d;">A vásárlással elfogadod az <a href="aszf.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Általános Szerződési Feltételeket</a> és az <a href="adatvedelem.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Adatkezelési tájékoztatót</a>.</label>
+                    </div>
+                    <a href="https://buy.stripe.com/bJe8wO5RFawKdSj9IV4c802" id="btnQuarterly" class="btn btn-elegant btn-sm mt-1 px-3 py-2" style="font-size: 1rem; pointer-events: none; opacity: 0.6;">Negyedéves előfizetés vásárlása</a>
                   </div>
                 </div>
               </div>
@@ -485,5 +493,38 @@
             }
         }
     </script>
+    <script>
+document.getElementById('acceptTermsYearly').addEventListener('change', function() {
+  var btn = document.getElementById('btnYearly');
+  if(this.checked) {
+    btn.style.pointerEvents = 'auto';
+    btn.style.opacity = '1';
+  } else {
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.6';
+  }
+});
+document.getElementById('acceptTermsQuarterly').addEventListener('change', function() {
+  var btn = document.getElementById('btnQuarterly');
+  if(this.checked) {
+    btn.style.pointerEvents = 'auto';
+    btn.style.opacity = '1';
+  } else {
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.6';
+  }
+});
+</script>
+  <footer class="text-center py-3" style="background: #222127; color: #fff; font-size: 1rem; position: relative; z-index: 10;">
+    <a href="impresszum.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">Impresszum</a>
+    <span style="color: #fff;">|</span>
+    <a href="aszf.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">ÁSZF</a>
+    <span style="color: #fff;">|</span>
+    <a href="adatvedelem.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">Adatkezelési tájékoztató</a>
+    <span style="color: #fff;">|</span>
+    <a href="gift-card.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">Ajándékkártya</a>
+    <br>
+    <span style="color: #fff; font-size: 0.95rem;">&copy; 2024 Astor Karrierváltó Tudásbázis. Minden jog fenntartva.</span>
+  </footer>
   </body>
 </html>
