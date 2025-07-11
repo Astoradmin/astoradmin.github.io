@@ -2,14 +2,6 @@
 <!-- ====Langues==== -->
 <html lang="hu">
   <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELJW9RPEQZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-ELJW9RPEQZ');
-    </script>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -78,7 +70,7 @@
         right: 0;
         background: rgba(44, 62, 80, 0.95);
         color: white;
-        padding: 1rem;
+        padding: 0.5rem 0.5rem 0.5rem 0.7rem;
         display: none;
         z-index: 1000;
         backdrop-filter: blur(10px);
@@ -92,8 +84,13 @@
       }
 
       .cookie-banner .btn {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
         white-space: nowrap;
+        font-size: 0.78rem;
+        padding: 0.18rem 0.7rem;
+        min-width: unset;
+        border-radius: 4px;
+        font-weight: 400;
       }
 
       :root {
@@ -458,7 +455,7 @@
       <div class="container px-4">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto text-center">
-            <h2 class="section-title mb-4 text-white">Készen állsz, hogy megtervezd a karrierváltásodat?</h2>
+            <h2 class="section-title mb-4 text-white">Készen állsz, hogy megtervezed a karrierváltásodat?</h2>
             <p class="lead mb-4 text-white">Ne hagyd, hogy a tested mondja ki helyetted: elég volt. Lépj most – és kezdd el végre magadat választani.</p>
             
           </div>
@@ -469,10 +466,16 @@
 
     <!-- Cookie Banner -->
     <div class="cookie-banner" id="cookieBanner">
-        <div>Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében. Az oldal használatával elfogadod a cookie-k használatát.</div>
-        <div>
-            <button class="btn btn-elegant" onclick="acceptCookies()">Elfogadom</button>
-        </div>
+      <div style="font-size: 0.93rem;">Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében. Kérjük, válaszd ki, mely sütiket engedélyezed:</div>
+      <div style="display: flex; flex-direction: row; gap: 1.2rem; margin-top: 0.18rem; justify-content: flex-start; align-items: center;">
+        <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentNecessary" checked disabled style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Elengedhetetlen sütik</span></label>
+        <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentAnalytics" style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Analitikai sütik</span></label>
+        <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentMarketing" style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Marketing sütik</span></label>
+      </div>
+      <div style="margin-top: 0.18rem; display: flex; gap: 0.4rem; justify-content: center; align-items: center;">
+        <button class="btn btn-primary" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;" onclick="acceptSelectedCookies()">Elfogadom</button>
+        <button class="btn btn-secondary ms-2" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;" onclick="rejectCookies()">Elutasítom</button>
+      </div>
     </div>
 
     <!-- Scripts -->
@@ -480,45 +483,90 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script>
-        // Cookie kezelő függvények
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      // --- GDPR sütikezelés ---
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
         }
-
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
-
-        function acceptCookies() {
-            setCookie('cookieConsent', 'accepted', 365);
-            document.getElementById('cookieBanner').style.display = 'none';
-            
-            // Google Analytics inicializálása csak elfogadás után
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ELJW9RPEQZ');
+        return null;
+      }
+      function acceptSelectedCookies() {
+        var analytics = document.getElementById('consentAnalytics').checked;
+        var marketing = document.getElementById('consentMarketing').checked;
+        setCookie('cookieConsentNecessary', 'true', 365);
+        setCookie('cookieConsentAnalytics', analytics ? 'true' : 'false', 365);
+        setCookie('cookieConsentMarketing', marketing ? 'true' : 'false', 365);
+        document.getElementById('cookieBanner').style.display = 'none';
+        if (analytics) loadAnalytics();
+        if (marketing) loadMarketing();
+      }
+      function rejectCookies() {
+        setCookie('cookieConsentNecessary', 'true', 365);
+        setCookie('cookieConsentAnalytics', 'false', 365);
+        setCookie('cookieConsentMarketing', 'false', 365);
+        document.getElementById('cookieBanner').style.display = 'none';
+      }
+      function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ELJW9RPEQZ';
+        document.head.appendChild(gaScript);
+        gaScript.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-ELJW9RPEQZ');
+        };
+      }
+      function loadMarketing() {
+        if (window.marketingLoaded) return;
+        window.marketingLoaded = true;
+        var mpScript = document.createElement('script');
+        mpScript.async = true;
+        mpScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        document.head.appendChild(mpScript);
+        mpScript.onload = function() {
+          if (!window.fbq) {
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+          }
+          fbq('init', '1449212609538981');
+          fbq('track', 'PageView');
+        };
+      }
+      window.onload = function() {
+        // Banner csak ha nincs döntés
+        var analytics = getCookie('cookieConsentAnalytics');
+        var marketing = getCookie('cookieConsentMarketing');
+        if (analytics === null || marketing === null) {
+          document.getElementById('cookieBanner').classList.add('show');
+        } else {
+          if (analytics === 'true') loadAnalytics();
+          if (marketing === 'true') loadMarketing();
         }
-
-        // Cookie banner megjelenítése, ha még nincs elfogadva
-        window.onload = function() {
-            if (!getCookie('cookieConsent')) {
-                document.getElementById('cookieBanner').classList.add('show');
-            }
-        }
+      }
     </script>
     <script>
 document.getElementById('acceptTermsYearly').addEventListener('change', function() {
@@ -542,23 +590,7 @@ document.getElementById('acceptTermsQuarterly').addEventListener('change', funct
   }
 });
 </script>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1449212609538981');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1449212609538981&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- Meta Pixel kód dinamikusan töltődik be -->
   <footer class="text-center py-3" style="background: #222127; color: #fff; font-size: 1rem; position: relative; z-index: 10;">
     <a href="impresszum.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">Impresszum</a>
     <span style="color: #fff;">|</span>

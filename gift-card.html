@@ -50,13 +50,7 @@
     }
   </style>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELJW9RPEQZ"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ELJW9RPEQZ');
-  </script>
+  <!-- A Google Analytics és Meta Pixel scriptek eltávolítva innen, dinamikusan töltjük be -->
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -169,10 +163,15 @@
   </script>
   <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookieBanner">
-    <div>Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében. Az oldal használatával elfogadod a cookie-k használatát.</div>
-    <div>
-      <button class="btn btn-elegant" onclick="acceptCookies()">Elfogadom</button>
-      <button class="btn btn-secondary ms-2" onclick="rejectCookies()">Nem fogadom el</button>
+    <div style="font-size: 0.93rem;">Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében. Kérjük, válaszd ki, mely sütiket engedélyezed:</div>
+    <div style="display: flex; flex-direction: row; gap: 1.2rem; margin-top: 0.18rem; justify-content: flex-start; align-items: center;">
+      <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentNecessary" checked disabled style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Elengedhetetlen sütik</span></label>
+      <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentAnalytics" style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Analitikai sütik</span></label>
+      <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentMarketing" style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Marketing sütik</span></label>
+    </div>
+    <div style="margin-top: 0.18rem; display: flex; gap: 0.4rem; justify-content: center; align-items: center;">
+      <button class="btn btn-primary" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;" onclick="acceptSelectedCookies()">Elfogadom</button>
+      <button class="btn btn-secondary ms-2" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;" onclick="rejectCookies()">Elutasítom</button>
     </div>
   </div>
   <style>
@@ -183,7 +182,7 @@
       right: 0;
       background: rgba(44, 62, 80, 0.95);
       color: white;
-      padding: 1rem;
+      padding: 0.5rem 0.5rem 0.5rem 0.7rem;
       display: none;
       z-index: 1000;
       backdrop-filter: blur(10px);
@@ -195,11 +194,17 @@
       align-items: center;
     }
     .cookie-banner .btn {
-      margin-left: 1rem;
+      margin-left: 0.5rem;
       white-space: nowrap;
+      font-size: 0.78rem;
+      padding: 0.18rem 0.7rem;
+      min-width: unset;
+      border-radius: 4px;
+      font-weight: 400;
     }
   </style>
   <script>
+    // --- GDPR sütikezelés ---
     function setCookie(name, value, days) {
       let expires = "";
       if (days) {
@@ -219,16 +224,68 @@
       }
       return null;
     }
-    function acceptCookies() {
-      setCookie('cookieConsent', 'accepted', 365);
+    function acceptSelectedCookies() {
+      var analytics = document.getElementById('consentAnalytics').checked;
+      var marketing = document.getElementById('consentMarketing').checked;
+      setCookie('cookieConsentNecessary', 'true', 365);
+      setCookie('cookieConsentAnalytics', analytics ? 'true' : 'false', 365);
+      setCookie('cookieConsentMarketing', marketing ? 'true' : 'false', 365);
       document.getElementById('cookieBanner').style.display = 'none';
+      if (analytics) loadAnalytics();
+      if (marketing) loadMarketing();
     }
     function rejectCookies() {
+      setCookie('cookieConsentNecessary', 'true', 365);
+      setCookie('cookieConsentAnalytics', 'false', 365);
+      setCookie('cookieConsentMarketing', 'false', 365);
       document.getElementById('cookieBanner').style.display = 'none';
     }
+    function loadAnalytics() {
+      if (window.analyticsLoaded) return;
+      window.analyticsLoaded = true;
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ELJW9RPEQZ';
+      document.head.appendChild(gaScript);
+      gaScript.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-ELJW9RPEQZ');
+      };
+    }
+    function loadMarketing() {
+      if (window.marketingLoaded) return;
+      window.marketingLoaded = true;
+      var mpScript = document.createElement('script');
+      mpScript.async = true;
+      mpScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(mpScript);
+      mpScript.onload = function() {
+        if (!window.fbq) {
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+        }
+        fbq('init', '1449212609538981');
+        fbq('track', 'PageView');
+      };
+    }
     window.onload = function() {
-      if (!getCookie('cookieConsent')) {
+      // Banner csak ha nincs döntés
+      var analytics = getCookie('cookieConsentAnalytics');
+      var marketing = getCookie('cookieConsentMarketing');
+      if (analytics === null || marketing === null) {
         document.getElementById('cookieBanner').classList.add('show');
+      } else {
+        if (analytics === 'true') loadAnalytics();
+        if (marketing === 'true') loadMarketing();
       }
     }
   </script>
