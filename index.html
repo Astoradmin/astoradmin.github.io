@@ -525,15 +525,21 @@
     <!-- Cookie Banner -->
     <div class="cookie-banner" id="cookieBanner">
       <div class="cookie-content">
-        <div class="cookie-text" style="font-size: 0.93rem;">Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében. Kérjük, válaszd ki, mely sütiket engedélyezed:</div>
-        <div class="cookie-options" style="display: flex; flex-direction: row; gap: 1.2rem; margin-top: 0.18rem; justify-content: flex-start; align-items: center;">
-          <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentNecessary" checked disabled style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Elengedhetetlen sütik</span></label>
-          <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentAnalytics" checked style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Analitikai sütik</span></label>
-          <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentMarketing" checked style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Marketing sütik</span></label>
-        </div>
+        <div class="cookie-text" style="font-size: 0.93rem;">Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében.</div>
         <div class="cookie-buttons" style="margin-top: 0.18rem; display: flex; gap: 0.4rem; justify-content: center; align-items: center;">
-          <button class="btn btn-primary" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;" onclick="acceptSelectedCookies()">Elfogadom</button>
-          <button class="btn btn-secondary ms-2" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;" onclick="rejectCookies()">Elutasítom</button>
+          <button class="btn btn-primary" id="cookieAcceptBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400; background: #B69D74; border: none; color: #fff;">Elfogadom</button>
+          <button class="btn btn-link ms-2" id="cookieDetailsBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400; background: none; border: none; color: #B69D74; text-decoration: underline; box-shadow: none;">Részletek</button>
+        </div>
+        <div class="cookie-details" id="cookieDetailsPanel" style="display:none; margin-top:0.7rem;">
+          <div class="cookie-options" style="display: flex; flex-direction: row; gap: 1.2rem; justify-content: flex-start; align-items: center;">
+            <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentNecessary" checked disabled style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Elengedhetetlen sütik</span></label>
+            <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentAnalytics" checked style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Analitikai sütik (Google Analytics)</span></label>
+            <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentMarketing" checked style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Marketing sütik (Meta Pixel)</span></label>
+          </div>
+          <div class="cookie-buttons" style="margin-top: 0.18rem; display: flex; gap: 0.4rem; justify-content: center; align-items: center;">
+            <button class="btn btn-primary" id="cookieDetailsAcceptBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;">Elfogadom a kiválasztottakat</button>
+            <button class="btn btn-secondary ms-2" id="cookieDetailsRejectBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;">Elutasítom</button>
+          </div>
         </div>
       </div>
     </div>
@@ -563,22 +569,51 @@
         }
         return null;
       }
-      function acceptSelectedCookies() {
-        var analytics = document.getElementById('consentAnalytics').checked;
-        var marketing = document.getElementById('consentMarketing').checked;
-        setCookie('cookieConsentNecessary', 'true', 365);
-        setCookie('cookieConsentAnalytics', analytics ? 'true' : 'false', 365);
-        setCookie('cookieConsentMarketing', marketing ? 'true' : 'false', 365);
-        document.getElementById('cookieBanner').style.display = 'none';
-        if (analytics) loadAnalytics();
-        if (marketing) loadMarketing();
-      }
-      function rejectCookies() {
-        setCookie('cookieConsentNecessary', 'true', 365);
-        setCookie('cookieConsentAnalytics', 'false', 365);
-        setCookie('cookieConsentMarketing', 'false', 365);
-        document.getElementById('cookieBanner').style.display = 'none';
-      }
+      // Cookie banner új logika
+      document.addEventListener('DOMContentLoaded', function() {
+        var detailsPanel = document.getElementById('cookieDetailsPanel');
+        var detailsBtn = document.getElementById('cookieDetailsBtn');
+        var acceptBtn = document.getElementById('cookieAcceptBtn');
+        var detailsAcceptBtn = document.getElementById('cookieDetailsAcceptBtn');
+        var detailsRejectBtn = document.getElementById('cookieDetailsRejectBtn');
+
+        if (detailsBtn) {
+          detailsBtn.addEventListener('click', function() {
+            detailsPanel.style.display = detailsPanel.style.display === 'none' ? 'block' : 'none';
+          });
+        }
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() {
+            // Minden sütit elfogad
+            setCookie('cookieConsentNecessary', 'true', 365);
+            setCookie('cookieConsentAnalytics', 'true', 365);
+            setCookie('cookieConsentMarketing', 'true', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+            loadAnalytics();
+            loadMarketing();
+          });
+        }
+        if (detailsAcceptBtn) {
+          detailsAcceptBtn.addEventListener('click', function() {
+            var analytics = document.getElementById('consentAnalytics').checked;
+            var marketing = document.getElementById('consentMarketing').checked;
+            setCookie('cookieConsentNecessary', 'true', 365);
+            setCookie('cookieConsentAnalytics', analytics ? 'true' : 'false', 365);
+            setCookie('cookieConsentMarketing', marketing ? 'true' : 'false', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+            if (analytics) loadAnalytics();
+            if (marketing) loadMarketing();
+          });
+        }
+        if (detailsRejectBtn) {
+          detailsRejectBtn.addEventListener('click', function() {
+            setCookie('cookieConsentNecessary', 'true', 365);
+            setCookie('cookieConsentAnalytics', 'false', 365);
+            setCookie('cookieConsentMarketing', 'false', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+          });
+        }
+      });
       function loadAnalytics() {
         if (window.analyticsLoaded) return;
         window.analyticsLoaded = true;
