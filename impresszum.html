@@ -2,10 +2,42 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=archive/impresszum.html">
-  <title>Átirányítás...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impresszum</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <style>
+    :root { --primary: #14B8A6; --secondary: #0F766E; --ink: #0F172A; --slate: #2c3e50; --bg: #FFFFFF; --soft-border: #D1FAF5; }
+    body { font-family: 'Open Sans', sans-serif; background: #fff; color: var(--slate); }
+    .container-box { max-width: 920px; margin: 3rem auto; background: #fff; border:1px solid var(--soft-border); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.04); padding: 2.2rem; }
+    h1, h2 { font-family: 'Playfair Display', serif; color: var(--ink); }
+    h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+    h2 { font-size: 1.35rem; margin-top: 2rem; }
+    .muted { color:#6c757d; font-size:0.95rem; }
+    a { color: var(--secondary); }
+    .brand { display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem; }
+    .brand img { height:56px; width:56px; object-fit:contain; }
+    .brand span { font-family:'Playfair Display',serif; color: var(--primary); font-weight:700; letter-spacing:0.04em; }
+  </style>
 </head>
 <body>
-  <p>Átirányítás az archív változatra... Ha nem történik meg automatikusan, kattints ide: <a href="archive/impresszum.html">Impresszum (archív)</a>.</p>
+  <div class="container-box">
+    <div class="brand">
+      <img src="assets/img/astorlogo.png" alt="Astor logó">
+      <span>Astor</span>
+    </div>
+    <h1>Impresszum</h1>
+    <h2>Szolgáltató adatai</h2>
+    <div style="text-align:center; margin: 1.5rem 0;">
+      <img src="assets/img/cegadatok.png" alt="Cégadatok" style="max-width:320px; width:100%; height:auto; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+    </div>
+
+    <h2>Tárhelyszolgáltató</h2>
+    <p>GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</p>
+
+    <h2>Panaszkezelés</h2>
+    <p>Panaszt a fenti elérhetőségek egyikén tudsz benyújtani. A beérkezett panaszokat 5 munkanapon belül megvizsgáljuk és válaszolunk.</p>
+
+    <p class="muted mt-4">Utolsó frissítés: 2025. szeptember 25.</p>
+  </div>
 </body>
 </html> 
