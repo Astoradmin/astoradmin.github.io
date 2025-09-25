@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Önismereti Teszt – Fedezd fel rejtett erősségeidet!</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: #f8f9fa; }
+    .test-container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 2.5rem 2rem; }
+    .question { font-weight: 600; font-size: 1.13rem; margin-bottom: 0.7rem; }
+    .result-box { background: #e3fcec; border-radius: 8px; padding: 1.2rem; margin-top: 1.5rem; }
+    .btn-main { background: linear-gradient(90deg, #ff6f91 0%, #48c6ef 100%); color: #fff; border: none; border-radius: 32px; font-weight: 700; font-size: 1.08rem; padding: 0.7rem 2.1rem; box-shadow: 0 4px 12px rgba(72,198,239,0.11), 0 1.5px 6px rgba(255,111,145,0.11); letter-spacing: 0.01em; transition: all 0.18s; }
+    .btn-main:hover { opacity: 0.93; }
+    .email-required { color: #c0392b; font-size: 0.98rem; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1 class="mb-3" style="color:#B69D74;">Önismereti Teszt</h1>
+    <p class="mb-4">Töltsd ki az alábbi rövid tesztet, és fedezd fel azokat a rejtett erősségeidet, amelyekre talán eddig nem is gondoltál! Az eredményeket e-mail címed megadása után azonnal megkapod.</p>
+    <form id="testForm">
+      <div class="mb-4">
+        <div class="question">1. Melyik állítás igaz rád leginkább?</div>
+        <div><input type="radio" name="q1" value="empatia" required> Könnyen beleérzem magam mások helyzetébe</div>
+        <div><input type="radio" name="q1" value="kitartas"> Nem adom fel, ha nehézségekbe ütközöm</div>
+        <div><input type="radio" name="q1" value="kreativitas"> Szeretek új megoldásokat kitalálni</div>
+      </div>
+      <div class="mb-4">
+        <div class="question">2. Melyik tevékenység tölt fel leginkább?</div>
+        <div><input type="radio" name="q2" value="tanulas" required> Új dolgokat tanulni, fejlődni</div>
+        <div><input type="radio" name="q2" value="segites"> Másokat támogatni, segíteni</div>
+        <div><input type="radio" name="q2" value="alkotas"> Valamit létrehozni, alkotni</div>
+      </div>
+      <div class="mb-4">
+        <div class="question">3. Hogyan oldod meg a problémákat?</div>
+        <div><input type="radio" name="q3" value="analizalas" required> Elemzem a helyzetet, és logikusan döntök</div>
+        <div><input type="radio" name="q3" value="intuicio"> Hallgatok a megérzéseimre</div>
+        <div><input type="radio" name="q3" value="csapat"> Szeretek másokkal együttműködni</div>
+      </div>
+      <div class="mb-4">
+        <label for="email" class="form-label">E-mail cím (az eredményhez szükséges):</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+        <div id="emailError" class="email-required" style="display:none;">Kérlek, adj meg egy érvényes e-mail címet!</div>
+      </div>
+      <button type="submit" class="btn btn-main w-100">Eredmény megtekintése</button>
+    </form>
+    <div id="resultBox" class="result-box mt-4" style="display:none;"></div>
+  </div>
+  <script>
+    function getStrengths(answers) {
+      // Egyszerűsített kiértékelés: minden válasz egy erősséghez vezet
+      const strengths = {
+        empatia: 'Empátia',
+        kitartas: 'Kitartás',
+        kreativitas: 'Kreativitás',
+        tanulas: 'Tanulás iránti vágy',
+        segites: 'Segítőkészség',
+        alkotas: 'Alkotókészség',
+        analizalas: 'Elemző gondolkodás',
+        intuicio: 'Intuíció',
+        csapat: 'Csapatmunka'
+      };
+      // Válaszokból egyedi erősségek listája
+      const unique = [...new Set(answers.map(a => strengths[a]).filter(Boolean))];
+      return unique;
+    }
+    document.getElementById('testForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value.trim();
+      const emailError = document.getElementById('emailError');
+      emailError.style.display = 'none';
+      if (!email.match(/^\S+@\S+\.\S+$/)) {
+        emailError.style.display = 'block';
+        return;
+      }
+      const answers = [form.q1.value, form.q2.value, form.q3.value];
+      const strengths = getStrengths(answers);
+      let resultHtml = `<h4>Fő erősségeid:</h4><ul>`;
+      strengths.forEach(str => {
+        resultHtml += `<li><b>${str}</b></li>`;
+      });
+      resultHtml += `</ul><p class='mt-3'>Ezek az erősségek segíthetnek abban, hogy tudatosabban építsd a karriered és magabiztosabban nézz szembe az új kihívásokkal!</p>`;
+      document.getElementById('resultBox').innerHTML = resultHtml;
+      document.getElementById('resultBox').style.display = 'block';
+      form.style.display = 'none';
+    });
+  </script>
+</body>
+</html> 

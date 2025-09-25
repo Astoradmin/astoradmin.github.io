@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<!-- ====Langues==== -->
+<html lang="hu">
+  <head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="dev_raj" />
+    <!-- ======== Page title ============ -->
+    <title>Karrierváltási Képzés - Biztonságos út az új karrierhez</title>
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="assets/img/Gold Luxury Initial Logo.png" type="image/png" />
+    <!-- ===========  All Stylesheet ================= -->
+    <!--  Bootstrap css plugins -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!--  main style css file -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- template main style css file -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        text-transform: none !important;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+      }
+      .lead {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+      }
+      /* Egységes szögletes megjelenés */
+      .btn,
+      .form-control,
+      .rounded,
+      .shadow-sm,
+      .problems-list,
+      .feature-item,
+      .step-item,
+      .eligibility-box {
+        border-radius: 4px !important;
+      }
+      /* Hero gomb stílus */
+      .hero-section {
+        background-color: #1a1a1a;  /* Sötét háttérszín */
+      }
+      .hero-section .btn-light {
+        background-color: #A48111;
+        color: #ffffff;
+      }
+      .hero-section .btn-light:hover {
+        background-color: #A48111;
+        color: #ffffff;
+      }
+      /* Process section CTA gomb */
+      .process-section .btn-light:hover {
+        transform: translateY(-2px);
+      }
+      /* Cookie banner stílus */
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(44, 62, 80, 0.95);
+        color: white;
+        padding: 0.7rem;
+        display: none;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .cookie-banner.show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cookie-content {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .cookie-text {
+        margin-bottom: 0.5rem;
+      }
+
+      .cookie-options {
+        margin-bottom: 0.5rem;
+      }
+
+      .cookie-buttons {
+        margin-top: 0.5rem;
+      }
+
+      /* Reszponzív beállítások */
+      @media (max-width: 768px) {
+        .cookie-banner {
+          padding: 0.5rem;
+        }
+
+        .cookie-banner.show {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .cookie-options {
+          flex-direction: column !important;
+          gap: 0.3rem !important;
+          align-items: flex-start !important;
+        }
+
+        .cookie-buttons {
+          flex-direction: column;
+          gap: 0.3rem;
+          width: 100%;
+        }
+
+        .cookie-buttons .btn {
+          width: 100%;
+          margin: 0 !important;
+        }
+      }
+
+      .cookie-banner .btn {
+        margin-left: 0.5rem;
+        white-space: nowrap;
+        font-size: 0.78rem;
+        padding: 0.18rem 0.7rem;
+        min-width: unset;
+        border-radius: 4px;
+        font-weight: 400;
+      }
+
+      :root {
+        --gold: #A48111;    /* Új arany szín */
+      }
+
+      /* Arany gombok stílusa */
+      .btn-light, 
+      .btn-elegant {
+        background-color: #A48111 !important;
+        color: #ffffff !important;  /* Fehér szöveg a jobb kontraszt érdekében */
+        border: none;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        font-size: 1.5rem !important; /* Nagyobb betűméret */
+        padding: 1rem 2.5rem !important; /* Nagyobb padding */
+      }
+
+      .btn-light:hover,
+      .btn-elegant:hover {
+        background-color: #A48111 !important;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Háttérképes szekciók */
+      .bg-image-section {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+
+
+      .bg-image-section > * {
+        position: relative;
+      }
+
+      .section-1, .section-2, .section-3, .section-4, .section-6 {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .section-1 {
+        background-image: url('./assets/img/bg_03.png');
+      }
+
+      .section-2 {
+        background-image: url('bg_03.png');
+      }
+
+      .section-3 {
+        background-image: url('b3_04.png');
+      }
+
+      .section-4 {
+        background-image: url('./assets/img/bg_03.png');
+      }
+
+      .section-6 {
+        background-image: url('./assets/img/bg_03.png');
+      }
+
+      .section-5 {
+        background-image: url('cta_bh.png');
+      }
+
+      .section-7 {
+        background-image: url('./assets/img/cta_bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .check-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background-color: #B69D74;
+        border-radius: 50%;
+        margin-right: 10px;
+        color: white;
+      }
+
+      .elegant-icon {
+        color: #B69D74;
+        font-size: 1.5em;
+        line-height: 1;
+      }
+
+      .elegant-icon.rotate {
+        transform: rotate(180deg);
+        display: inline-block;
+      }
+
+      .eligibility-box.good {
+        border-left: 4px solid #B69D74;
+      }
+
+      .eligibility-box.bad {
+        border-left: 4px solid #B69D74;
+      }
+
+      .elegant-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background-color: #B69D74;
+        color: white;
+        border-radius: 50%;
+        margin-right: 10px;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-weight: 600;
+        line-height: 1;
+        padding-bottom: 2px; /* Finomhangolás a vertikális középre igazításhoz */
+      }
+
+      .cookie-banner button {
+        background-color: #B69D74;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 24px;  /* Megnövelt padding */
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .cookie-banner button:hover {
+        background-color: #a38a64;
+      }
+      .form-check-input[type="checkbox"] {
+        width: 26px;
+        height: 26px;
+        border-radius: 4px;
+        border: 2px solid #A48111;
+        box-shadow: 0 2px 6px rgba(164,129,17,0.08);
+        background: #fff;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .form-check-input[type="checkbox"]:checked {
+        background-color: #A48111;
+        border-color: #A48111;
+        box-shadow: 0 2px 8px rgba(164,129,17,0.15);
+      }
+      .form-check-input[type="checkbox"]:focus {
+        border-color: #B69D74;
+        box-shadow: 0 0 0 2px #B69D7433;
+      }
+    </style>
+    <!-- Hotjar Tracking Code for Site 6464466 (name missing) -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6464466,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+  </head>
+
+  <body class="body-wrapper">
+    <div class="container-fluid py-3" style="background: #000;">
+      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center" style="gap: 1.2rem;">
+        <img src="assets/img/Gold Luxury Initial Logo.png" alt="Astor logó" style="height: 150px; width: 150px; object-fit: contain;" />
+        <div class="text-center text-md-start">
+          <span style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #A48111; letter-spacing: 0.1em; font-weight: 700; display: block;">Astor</span>
+          <span style="font-family: 'Open Sans', sans-serif; font-size: 1.05rem; color: #B69D74; letter-spacing: 0.04em; font-weight: 500; display: block; margin-top: -2px;">Karrierváltó Tudásbázis</span>
+        </div>
+      </div>
+    </div>
+    <!-- Hero Section Start -->
+    <section class="hero-section">
+      <div class="container px-4">
+        <div class="row align-items-center min-vh-100">
+          <div class="col-lg-8 col-md-10 mx-auto text-center text-white py-4">
+            <h1 class="display-4 mb-4 text-white">Megérdemled, hogy jól érezd magad a munkádban!</h1>
+            <p class="lead mb-4 text-white">Adnál egy esélyt magadnak, hogy megtaláld a számodra megfelelő utat?</p>
+            <a href="#pricing" class="btn btn-light btn-lg mt-4 px-4 py-3">Elegem van – Én ennél többet érdemlek!</a>
+        </div>
+      </div>
+          </div>
+          </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Problem Section Start -->
+    <section class="problem-section py-5 bg-image-section section-1">
+      <div class="container px-4">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-title text-center mb-4" style="color: #2c3e50;">Tudod, hogy nem itt van a helyed... de hogyan lépj tovább?</h2>
+            <div class="problems-list p-4 rounded" style="background: transparent;">
+              <p class="problem-item mb-4 d-flex align-items-start">
+                <span class="elegant-icon me-3">❧</span>
+                <span><strong>Kiégettnek érzed magad?</strong><br>Reggelente egyre nehezebben mész be dolgozni, és már a hétvégék sem elég hosszúak a feltöltődéshez? Esetleg egy toxikus munkahelyi légkör nyomása alatt érzed magad?</span>
+              </p>
+              <p class="problem-item mb-4 d-flex align-items-start">
+                <span class="elegant-icon me-3">❧</span>
+                <span><strong>Félsz a változástól?</strong><br>Aggódsz, hogy ha váltasz, anyagilag nehéz helyzetbe kerülsz, vagy nem találod meg a helyed az új területen? Netán az álláskeresés során diszkriminációval is szembe kell nézned?</span>
+              </p>
+              <p class="problem-item mb-4 d-flex align-items-start">
+                <span class="elegant-icon me-3">❧</span>
+                <span><strong>Tanácstalan vagy?</strong><br>Nem tudod, milyen lehetőségeid vannak, és merre indulj el, hogy megtaláld azt, amit igazán szeretnél csinálni?</span>
+              </p>
+            </div>
+            <p class="good-news lead mt-4 text-center p-3" style="background-color: #E5D3B3; border-left: 4px solid #A48111; color: #2c3e50;">
+              <strong>A jó hír:</strong> Nem kell azonnal mindent felrúgnod ahhoz, hogy új irányt találj. Egy átgondolt terv segít, hogy biztos alapokkal indulj el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Problem Section End -->
+
+    <!-- Solution Section Start -->
+    <section class="solution-section py-5 bg-image-section section-2">
+      <div class="container px-4">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-title text-center mb-5" style="color: #2c3e50;">Hogyan segít az online tudásbázis?</h2>
+            <div class="solution-features">
+              <div class="feature-item mb-4 p-3">
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Felmérheted a lehetőségeidet</h4>
+                <p>Ismerd meg az erősségeidet, és találd meg, milyen irányba érdemes elindulnod a karrierváltásban.</p>
+              </div>
+              <div class="feature-item mb-4 p-3">
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Megtervezheted a lépéseket</h4>
+                <p>Lépésről lépésre haladhatsz a zökkenőmentes váltás felé a részletes útmutatók segítségével.</p>
+              </div>
+              <div class="feature-item mb-4 p-3">
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Minimalizálhatod a kockázatot</h4>
+                <p>Ne ugorj fejest semmibe anélkül, hogy alaposan megismernéd a lehetőségeidet és stratégiákat kapnál a biztonságos előrelépéshez.</p>
+              </div>
+              <div class="feature-item mb-4 p-3">
+                <h4><img src="./assets/img/heart.svg" alt="heart icon" class="heart-icon me-3" style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) invert(71%) sepia(14%) saturate(638%) hue-rotate(355deg) brightness(89%) contrast(84%);">Felkészülhetsz a váltásra</h4>
+                <p>Fejleszd a szükséges készségeket, készülj interjúkra, és építs kapcsolatokat az online anyagokkal és gyakorlatokkal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Solution Section End -->
+
+    <!-- Eligibility Section Start -->
+    <section class="eligibility-section py-5 section-7">
+      <div class="container px-4">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-title text-center mb-5" style="color: #2c3e50;">Kinek való és kinek nem?</h2>
+              <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="eligibility-box good p-4 h-100" style="min-height: 300px;">
+                  <h3 class="mb-3">Neked való, ha:</h3>
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><span class="elegant-icon me-3">❧</span> Szeretnél váltani, de átgondoltan, kevesebb kockázattal.</li>
+                    <li class="mb-3"><span class="elegant-icon me-3">❧</span> Hajlandó vagy időt és energiát fektetni a folyamatba.</li>
+                    <li class="mb-3"><span class="elegant-icon me-3">❧</span> Kíváncsi vagy, milyen lehetőségeid vannak, és szeretnéd őket objektíven értékelni.</li>
+                  </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                <div class="eligibility-box bad p-4 h-100" style="min-height: 300px;">
+                  <h3 class="mb-3">Nem neked való, ha:</h3>
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><span class="elegant-icon rotate me-3">❧</span> Azonnal akarsz váltani, nincs időd a tervezésre.</li>
+                    <li class="mb-3"><span class="elegant-icon rotate me-3">❧</span> Nem vagy hajlandó energiát fektetni az önismeretbe.</li>
+                    <li class="mb-3"><span class="elegant-icon rotate me-3">❧</span> Kész megoldást vársz, ami garantálja a sikert.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="#pricing" class="btn btn-light btn-lg px-4 py-3" style="background-color: #FFD700; color: #1a1a1a; border: none; font-weight: 600; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;">Elegem van – Én ennél többet érdemlek!</a>
+      </div>
+    </section>
+    <!-- Eligibility Section End -->
+
+    <!-- Process Section Start -->
+    <section class="process-section py-5" id="process" style="scroll-margin-top: 100px;">
+      <div class="container px-4">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-title text-center mb-5" style="color: #2c3e50;">Hogyan működik az online tudásbázis?</h2>
+            <div class="process-steps" style="background: transparent;">
+              <div class="step-item mb-4 p-3">
+                <h4><span class="elegant-number">1</span> Befizetés és indulás</h4>
+                <p style="font-size: 1.15rem;">Bármelyik előfizetési csomagra 2025. augusztus 15-ig tudsz jelentkezni és befizetni. Ha most lemaradsz, ne aggódj – a következő nyitásról szívesen értesítünk, ha <a href="https://forms.gle/Nw7Gwy9nobiGxE6t6" style="color: #A48111; text-decoration: underline; font-size: 1.15rem; font-weight: 600;">feliratkozol</a>!</p>
+              </div>
+              <div class="step-item mb-4 p-3">
+                <h4><span class="elegant-number">2</span> Tudásbázis elindulása és hozzáférés</h4>
+                <p style="font-size: 1.15rem;">A teljes hozzáférést 2025. augusztus 21-én kapod meg. Ettől a naptól kezdve bármikor beléphetsz az online tudásbázisba, ahol modulok és letölthető segédanyagok várnak rád. A hozzáférésed az általad választott előfizetési időszakra (1 év vagy 3 hónap) érvényes.</p>
+              </div>
+              <div class="step-item mb-4 p-3">
+                <h4><span class="elegant-number">3</span> Saját tempódban fejlődhetsz</h4>
+                <p style="font-size: 1.15rem;">A tudásbázis anyagait korlátlanul használhatod a hozzáférési időszakod alatt (1 év vagy 3 hónap), haladj úgy, ahogy neked a legjobb — nincs élő foglalkozás, mégis egy átgondolt, lépésről lépésre vezető rendszer segít előre.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Process Section End -->
+
+    <!-- Pricing Section -->
+    <section class="pricing-section py-5 bg-image-section section-4" id="pricing" style="scroll-margin-top: 100px;">
+      <div class="container px-4">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-title text-center mb-4" style="color: #2c3e50;">Karrierváltó Online Tudásbázis</h2>
+            <div class="pricing-box">
+              <p class="pricing-intro text-center" style="color: #B69D74;">
+                Ez a tudásbázis segít neked átgondoltan és felkészülten megtervezni a karrierváltásodat, hogy kevesebb kockázattal és nagyobb magabiztossággal lépj tovább.
+              </p>
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-5 mb-3">
+                  <div class="price-tag text-center p-4" style="background: #fffbe9; border-radius: 8px; border: 1px solid #e5d3b3;">
+                    <h4 class="mb-2" style="color: #A48111;">Éves előfizetés</h4>
+                    <div style="font-size: 1.5rem; color: #2c3e50; font-weight: 600;">59.900 Ft / év</div>
+                    <div style="font-size: 1rem; color: #B69D74;">(Összehasonlításként: kb. 4 alkalom díja egy magán pszichológusnál.)</div>
+                    <div style="font-size: 1rem; color: #2c3e50; margin-top: 0.5rem;">12 hónap teljes hozzáférés</div>
+                    <div class="form-check d-flex justify-content-center align-items-center mt-3 mb-2">
+                      <input class="form-check-input" type="checkbox" id="acceptTermsYearly">
+                      <label class="form-check-label ms-2" for="acceptTermsYearly" style="font-size: 0.95rem; color: #6c757d;">A vásárlással elfogadod az <a href="aszf.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Általános Szerződési Feltételeket</a> és az <a href="adatvedelem.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Adatkezelési tájékoztatót</a>.</label>
+                    </div>
+                    <a href="https://buy.stripe.com/5kQeVc3JxawK29Bg7j4c800" id="btnYearly" class="btn btn-elegant btn-sm mt-1 px-3 py-2" style="font-size: 1rem; pointer-events: none; opacity: 0.6;">Éves előfizetés vásárlása</a>
+                  </div>
+                </div>
+                <div class="col-md-5 mb-3">
+                  <div class="price-tag text-center p-4" style="background: #f5f7fa; border-radius: 8px; border: 1px solid #e5d3b3;">
+                    <h4 class="mb-2" style="color: #A48111;">Negyedéves előfizetés</h4>
+                    <div style="font-size: 1.5rem; color: #2c3e50; font-weight: 600;">18.000 Ft / 3 hónap</div>
+                    <div style="font-size: 1rem; color: #B69D74;">(Összehasonlításként: napi egy latte egy hónapon át a munkahelyi büféből.)</div>
+                    <div style="font-size: 1rem; color: #2c3e50; margin-top: 0.5rem;">3 hónap teljes hozzáférés</div>
+                    <div class="form-check d-flex justify-content-center align-items-center mt-3 mb-2">
+                      <input class="form-check-input" type="checkbox" id="acceptTermsQuarterly">
+                      <label class="form-check-label ms-2" for="acceptTermsQuarterly" style="font-size: 0.95rem; color: #6c757d;">A vásárlással elfogadod az <a href="aszf.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Általános Szerződési Feltételeket</a> és az <a href="adatvedelem.html" target="_blank" style="color: #6c757d; text-decoration: underline;">Adatkezelési tájékoztatót</a>.</label>
+                    </div>
+                    <a href="https://buy.stripe.com/bJe8wO5RFawKdSj9IV4c802" id="btnQuarterly" class="btn btn-elegant btn-sm mt-1 px-3 py-2" style="font-size: 1rem; pointer-events: none; opacity: 0.6;">Negyedéves előfizetés vásárlása</a>
+                  </div>
+                </div>
+              </div>
+              <p class="pricing-intro text-center mt-3" style="color: #B69D74;">Nem kell azonnal munkahelyet váltanod – csak épp megadod magadnak az esélyt, hogy ne maradj ott, ahol boldogtalan vagy.</p>
+              <div class="text-center mb-4">
+                <a href="gift-card.html" class="btn btn-giftcard" style="background: linear-gradient(90deg, #ff6f91 0%, #48c6ef 100%); color: #fff; border: none; border-radius: 32px; font-weight: 700; font-size: 1.18rem; padding: 0.95rem 2.5rem; box-shadow: 0 6px 18px rgba(72,198,239,0.13), 0 1.5px 6px rgba(255,111,145,0.13); letter-spacing: 0.01em; transition: all 0.18s;">🎁 Tovább az Ajándékkártyához</a>
+              </div>
+              <div class="pricing-details mb-4" style="color: #2c3e50;">
+                <h3 class="h4 mb-3">Mit kapsz?</h3>
+                <p class="mb-2 d-flex align-items-center">✔️ Hozzáférést kapsz egy önállóan bejárható, lépésről lépésre felépített tudásbázishoz, amely segít átgondolni a lehetőségeidet, tisztábban látni az irányaidat, és felkészülten, tudatosan haladni a karrierváltás felé.</p>
+                <p class="mb-2 d-flex align-items-center">✔️ Gyakorlati útmutatók és stratégiák a diszkriminatív interjúkérdések, megalázó helyzetek és toxikus munkahelyi légkör kezelésére – hogy tudd, hogyan állj ki magadért nehéz helyzetekben is, és ne veszítsd el a tartásod, az önbizalmad vagy az irányítást a saját történeted felett.</p>
+                <p class="mb-2 d-flex align-items-center">✔️ Kiemelt hangsúlyt kap a soft skillek fejlesztése, hiszen ezek a készségek segítenek abban, hogy magabiztosabban és eredményesebben állj helyt az új karrieredben.</p>
+                <p class="mb-2 d-flex align-items-center">✔️ 12 hónapos vagy 3 hónapos hozzáférés – választható előfizetési időszak, a saját tempódban dolgozhatsz az anyagokon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Pricing Section End -->
+
+    <!-- CTA Section Start -->
+    <section id="jelentkezes" class="cta-section py-5" style="background-color: #2c3e50; color: white;">
+      <div class="container px-4">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto text-center">
+            <h2 class="section-title mb-4 text-white">Készen állsz, hogy megtervezed a karrierváltásodat?</h2>
+            <p class="lead mb-4 text-white">Ne hagyd, hogy a tested mondja ki helyetted: elég volt. Lépj most – és kezdd el végre magadat választani.</p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section End -->
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-content">
+        <div class="cookie-text" style="font-size: 0.93rem;">Ez a weboldal cookie-kat használ a jobb felhasználói élmény érdekében.</div>
+        <div class="cookie-buttons" style="margin-top: 0.18rem; display: flex; gap: 0.4rem; justify-content: center; align-items: center;">
+          <button class="btn btn-primary" id="cookieAcceptBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400; background: #B69D74; border: none; color: #fff;">Elfogadom</button>
+          <button class="btn btn-link ms-2" id="cookieDetailsBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400; background: none; border: none; color: #B69D74; text-decoration: underline; box-shadow: none;">Részletek</button>
+        </div>
+        <div class="cookie-details" id="cookieDetailsPanel" style="display:none; margin-top:0.7rem;">
+          <div class="cookie-options" style="display: flex; flex-direction: row; gap: 1.2rem; justify-content: flex-start; align-items: center;">
+            <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentNecessary" checked disabled style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Elengedhetetlen sütik</span></label>
+            <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentAnalytics" checked style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Analitikai sütik (Google Analytics)</span></label>
+            <label style="display: flex; align-items: center; font-weight: 400; font-size: 0.82rem; color: #e0e0e0;"><input type="checkbox" id="consentMarketing" checked style="margin-right: 6px; width: 16px; height: 16px;"> <span style="margin-left: 4px;">Marketing sütik (Meta Pixel)</span></label>
+          </div>
+          <div class="cookie-buttons" style="margin-top: 0.18rem; display: flex; gap: 0.4rem; justify-content: center; align-items: center;">
+            <button class="btn btn-primary" id="cookieDetailsAcceptBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;">Elfogadom a kiválasztottakat</button>
+            <button class="btn btn-secondary ms-2" id="cookieDetailsRejectBtn" style="font-size: 0.78rem; padding: 0.18rem 0.7rem; min-width: unset; border-radius: 4px; font-weight: 400;">Elutasítom</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script>
+      // --- GDPR sütikezelés ---
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+      // Cookie banner új logika
+      document.addEventListener('DOMContentLoaded', function() {
+        var detailsPanel = document.getElementById('cookieDetailsPanel');
+        var detailsBtn = document.getElementById('cookieDetailsBtn');
+        var acceptBtn = document.getElementById('cookieAcceptBtn');
+        var detailsAcceptBtn = document.getElementById('cookieDetailsAcceptBtn');
+        var detailsRejectBtn = document.getElementById('cookieDetailsRejectBtn');
+
+        if (detailsBtn) {
+          detailsBtn.addEventListener('click', function() {
+            detailsPanel.style.display = detailsPanel.style.display === 'none' ? 'block' : 'none';
+          });
+        }
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() {
+            // Minden sütit elfogad
+            setCookie('cookieConsentNecessary', 'true', 365);
+            setCookie('cookieConsentAnalytics', 'true', 365);
+            setCookie('cookieConsentMarketing', 'true', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+            loadAnalytics();
+            loadMarketing();
+          });
+        }
+        if (detailsAcceptBtn) {
+          detailsAcceptBtn.addEventListener('click', function() {
+            var analytics = document.getElementById('consentAnalytics').checked;
+            var marketing = document.getElementById('consentMarketing').checked;
+            setCookie('cookieConsentNecessary', 'true', 365);
+            setCookie('cookieConsentAnalytics', analytics ? 'true' : 'false', 365);
+            setCookie('cookieConsentMarketing', marketing ? 'true' : 'false', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+            if (analytics) loadAnalytics();
+            if (marketing) loadMarketing();
+          });
+        }
+        if (detailsRejectBtn) {
+          detailsRejectBtn.addEventListener('click', function() {
+            setCookie('cookieConsentNecessary', 'true', 365);
+            setCookie('cookieConsentAnalytics', 'false', 365);
+            setCookie('cookieConsentMarketing', 'false', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+          });
+        }
+      });
+      function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ELJW9RPEQZ';
+        document.head.appendChild(gaScript);
+        gaScript.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-ELJW9RPEQZ');
+        };
+      }
+      function loadMarketing() {
+        if (window.marketingLoaded) return;
+        window.marketingLoaded = true;
+        var mpScript = document.createElement('script');
+        mpScript.async = true;
+        mpScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        document.head.appendChild(mpScript);
+        mpScript.onload = function() {
+          if (!window.fbq) {
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+          }
+          fbq('init', '1449212609538981');
+          fbq('track', 'PageView');
+        };
+      }
+      window.onload = function() {
+        // Banner csak ha nincs döntés
+        var analytics = getCookie('cookieConsentAnalytics');
+        var marketing = getCookie('cookieConsentMarketing');
+        if (analytics === null || marketing === null) {
+          document.getElementById('cookieBanner').classList.add('show');
+        } else {
+          if (analytics === 'true') loadAnalytics();
+          if (marketing === 'true') loadMarketing();
+        }
+      }
+    </script>
+    <script>
+document.getElementById('acceptTermsYearly').addEventListener('change', function() {
+  var btn = document.getElementById('btnYearly');
+  if(this.checked) {
+    btn.style.pointerEvents = 'auto';
+    btn.style.opacity = '1';
+  } else {
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.6';
+  }
+});
+document.getElementById('acceptTermsQuarterly').addEventListener('change', function() {
+  var btn = document.getElementById('btnQuarterly');
+  if(this.checked) {
+    btn.style.pointerEvents = 'auto';
+    btn.style.opacity = '1';
+  } else {
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.6';
+  }
+});
+</script>
+    <!-- Meta Pixel kód dinamikusan töltődik be -->
+  <footer class="text-center py-3" style="background: #222127; color: #fff; font-size: 1rem; position: relative; z-index: 10;">
+    <a href="impresszum.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">Impresszum</a>
+    <span style="color: #fff;">|</span>
+    <a href="aszf.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">ÁSZF</a>
+    <span style="color: #fff;">|</span>
+    <a href="adatvedelem.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">Adatkezelési tájékoztató</a>
+    <span style="color: #fff;">|</span>
+    <a href="gift-card.html" style="color: #B69D74; text-decoration: underline; margin: 0 10px;">Ajándékkártya</a>
+    <span style="color: #fff;">|</span>
+    <a href="https://forms.gle/Nw7Gwy9nobiGxE6t6" style="color: #B69D74; text-decoration: underline; margin: 0 10px;" target="_blank">Kapcsolat</a>
+    <br>
+    <span style="color: #fff; font-size: 0.95rem;">&copy; 2025 Astor Karrierváltó Tudásbázis. Minden jog fenntartva.</span>
+  </footer>
+  </body>
+</html>
