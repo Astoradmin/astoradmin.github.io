@@ -3,56 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astor – Hamarosan érkezünk</title>
+  <title>Astor – Megbízható ügyfelek a szépségiparban</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Open Sans', sans-serif; background: #0f1115; color: #eaeaea; }
-    .wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
-    .card { background: #171923; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 2.2rem 2rem; max-width: 720px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
-    h1 { font-family: 'Playfair Display', serif; color: #A48111; font-weight: 700; font-size: 2.1rem; margin-bottom: 0.8rem; }
-    p { color: #cfd3da; font-size: 1.06rem; }
-    .brand { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.8rem; }
-    .brand img { height: 60px; width: 60px; object-fit: contain; }
-    .cta { margin-top: 1.2rem; display: flex; gap: 0.7rem; flex-wrap: wrap; }
-    .btn-main { background: #A48111; color: #fff; border: none; border-radius: 6px; padding: 0.7rem 1.1rem; font-weight: 600; }
-    .btn-outline { background: transparent; color: #B69D74; border: 1px solid #2c2f3a; border-radius: 6px; padding: 0.7rem 1.1rem; font-weight: 600; }
-    .links { margin-top: 0.8rem; font-size: 0.95rem; color: #9097a5; }
-    .links a { color: #B69D74; text-decoration: underline; }
+    :root { --gold: #EC4899; --gold-2: #14B8A6; --ink: #0F172A; --slate: #2c3e50; --bg: #FFFBFE; --soft-border: #FCE7F3; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--slate); background: #fff; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--ink); font-weight: 700; }
+    .btn-gold { background: var(--gold); color: #fff; border: none; border-radius: 6px; padding: 0.85rem 1.3rem; font-weight: 700; box-shadow: 0 6px 14px rgba(236,72,153,0.20); }
+    .btn-gold:hover { background: #DB2777; color: #fff; }
+    .btn-ghost { background: #fff; color: var(--gold-2); border: 1px solid var(--soft-border); border-radius: 6px; padding: 0.85rem 1.2rem; font-weight: 700; }
+    .brand-bar { background: #fff; color: var(--ink); border-bottom: 1px solid var(--soft-border); }
+    .brand-mark { color: var(--gold); letter-spacing: 0.06em; font-weight: 700; font-family: 'Playfair Display', serif; }
+    .hero { background: var(--bg); }
+    .hero-pill { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--soft-border); padding: 8px 12px; border-radius: 999px; color: var(--gold-2); font-weight: 600; font-size: 0.95rem; }
+    .section-hint { color: var(--gold-2); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; font-size: 0.86rem; }
+    .benefit { background: #fff; border: 1px solid var(--soft-border); border-radius: 10px; padding: 18px; height: 100%; }
+    .benefit h4 { font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--ink); }
+    .icon { width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; background: var(--gold-2); color: #fff; border-radius: 50%; font-weight: 700; margin-right: 10px; }
+    .step { background: #fff; border: 1px solid var(--soft-border); border-radius: 10px; padding: 18px; height: 100%; }
+    .step-num { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: var(--gold-2); color: #fff; border-radius: 50%; margin-right: 10px; font-weight: 700; }
+    .included li { margin-bottom: 8px; }
+    .testi { background: #fff; border: 1px solid var(--soft-border); border-radius: 10px; padding: 18px; height: 100%; font-size: 0.98rem; }
+    .badge-lite { background: #fff; border: 1px solid var(--soft-border); color: var(--gold-2); font-weight: 600; border-radius: 999px; padding: 6px 10px; }
+    .faq .card { border: 1px solid var(--soft-border); border-radius: 10px; }
+    .faq .card-header { background: #fff; }
+    .footer { background: #FFFBFE; color: var(--ink); border-top: 1px solid var(--soft-border); }
+    a { color: var(--gold-2); }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="brand">
-        <img src="assets/img/Gold Luxury Initial Logo.png" alt="Astor logó" />
-        <div>
-          <div style="font-family:'Playfair Display',serif; font-weight:700; letter-spacing:0.04em; color:#A48111; font-size:1.4rem;">Astor</div>
-          <div style="color:#B69D74; font-size:0.98rem; margin-top:-2px;">Karrierváltó Tudásbázis</div>
-        </div>
-      </div>
-      <h1>Hamarosan indul az új oldal</h1>
-      <p>Épp egy letisztult, fókuszált élményt készítünk elő. Addig is iratkozz fel, és elsőként értesítünk a nyitásról.</p>
-      <form class="row g-2" action="https://forms.gle/Nw7Gwy9nobiGxE6t6" method="get">
-        <div class="col-12 col-md">
-          <input type="email" class="form-control" placeholder="E-mail címed" required>
-        </div>
-        <div class="col-12 col-md-auto">
-          <button type="submit" class="btn-main w-100">Értesítést kérek</button>
-        </div>
-      </form>
-      <div class="cta">
-        <a class="btn-outline" href="archive/index.html">Régi kezdőlap megnyitása</a>
-        <a class="btn-outline" href="archive/gift-card.html">Ajándékkártya (archív)</a>
-      </div>
-      <div class="links">
-        <a href="archive/impresszum.html">Impresszum</a> ·
-        <a href="archive/aszf.html">ÁSZF</a> ·
-        <a href="archive/adatvedelem.html">Adatkezelési tájékoztató</a>
+  <header class="brand-bar py-3">
+    <div class="container d-flex align-items-center justify-content-center" style="gap: 1rem;">
+      <img src="assets/img/astorlogo.png" alt="Astor logó" style="height: 96px; width: 96px; object-fit: contain;" />
+      <div>
+        <div class="brand-mark" style="font-size: 1.3rem;">Astor</div>
+        <div style="color: var(--gold-2); font-size: 0.95rem; margin-top: -2px;">Megbízható ügyfelek a szépségiparban</div>
       </div>
     </div>
-  </div>
+  </header>
+
+  <section class="hero py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="hero-pill mb-3">Fodrász • Kozmetikus • Műkörmös • Szempilla stylist</span>
+          <h1 class="mb-3">Ügyfeleket szeretnél – vagy megbízható ügyfeleket?</h1>
+          <p class="lead" style="max-width: 720px;">Bevonzod a megbízhatatlan ügyfeleket? Akik pénz nélkül érkeznek, elfutnak fizetés nélkül, vagy időpontot foglalnak, de nem jelennek meg? Bemutatom, mennyibe kerül ez neked – és adok egy rendszert, amellyel ők maguktól nem akarnak nálad időpontot foglalni.</p>
+          <div class="d-flex flex-column flex-sm-row" style="gap: 0.7rem;">
+            <a href="#jelentkezes" class="btn btn-gold">Megrendelem a szűrési tervet</a>
+            <a href="#hogyan" class="btn btn-ghost">Hogyan működik?</a>
+          </div>
+          <div class="mt-3" style="color:#6c757d; font-size:0.95rem;">Kizárólag igazolt, működő szépségipari szakembereknek. Ellenőrzés után férsz hozzá.</div>
+        </div>
+        <div class="col-lg-5 mt-4 mt-lg-0">
+          <div class="p-4" style="background:#fff; border:1px solid var(--soft-border); border-radius:10px;">
+            <div class="section-hint mb-2">Mi változik?</div>
+            <div class="row g-3">
+              <div class="col-12 col-sm-6"><div class="benefit"><div><span class="icon">✓</span><strong>Kevesebb no-show</strong></div><div>Előszűrés + emlékeztetők = jelentősen kevesebb meg nem jelenés.</div></div></div>
+              <div class="col-12 col-sm-6"><div class="benefit"><div><span class="icon">✓</span><strong>Nagyobb biztonság</strong></div><div>Átlátható fizetési szabályok, előleg/letét opciók, egyértelmű keretek.</div></div></div>
+              <div class="col-12 col-sm-6"><div class="benefit"><div><span class="icon">✓</span><strong>Stabilabb bevétel</strong></div><div>„Olcsó” érdeklődők helyett minőségi, visszatérő ügyfelek.</div></div></div>
+              <div class="col-12 col-sm-6"><div class="benefit"><div><span class="icon">✓</span><strong>Kevesebb stressz</strong></div><div>Szűrési pontok, amelyek már az elején kiszórják a problémásakat.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hogyan" class="py-5" style="background:#fff;">
+    <div class="container">
+      <div class="text-center mb-4">
+        <div class="section-hint">Hogyan működik</div>
+        <h2 class="mt-2">Szűrési rendszer 3 lépésben</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="step"><div class="mb-2"><span class="step-num">1</span><strong>Előszűrés</strong></div><div>Mini-űrlap és szabályzat az időpontkérés előtt. Akinek ez sok, nem foglal.</div></div></div>
+        <div class="col-md-4"><div class="step"><div class="mb-2"><span class="step-num">2</span><strong>Letisztult feltételek</strong></div><div>Lemondási, késési, fizetési szabályok közérthetően – és link minden felületen.</div></div></div>
+        <div class="col-md-4"><div class="step"><div class="mb-2"><span class="step-num">3</span><strong>Emlékeztetők és letét</strong></div><div>Automata emlékeztetők, opcionális előleg/letét – hogy a valós foglalás valós megjelenés legyen.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="koltseg" class="py-5" style="background: var(--bg);">
+    <div class="container">
+      <div class="text-center mb-4">
+        <div class="section-hint">Mennyibe kerül a megbízhatatlanság?</div>
+        <h2 class="mt-2">Számold ki a rejtett veszteséged</h2>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6">
+          <div class="p-4 h-100" style="background:#fff; border:1px solid var(--soft-border); border-radius:10px;">
+            <div class="mb-3"><label class="form-label">Átlagos szolgáltatás ára (Ft)</label><input id="avgPrice" type="number" class="form-control" value="12000" min="0"></div>
+            <div class="mb-3"><label class="form-label">Havi no-show (db)</label><input id="noShow" type="number" class="form-control" value="2" min="0"></div>
+            <div class="mb-3"><label class="form-label">Havi késő lemondás (db)</label><input id="lateCancel" type="number" class="form-control" value="2" min="0"></div>
+            <button id="calcBtn" class="btn btn-gold mt-1">Kalkuláció</button>
+            <div id="calcOut" class="mt-3" style="font-weight:700;"></div>
+            <div class="mt-2" style="color:#6c757d; font-size:0.95rem;">Egyszerű becslés: veszteség = ár × (no-show + 0.5 × késő lemondás).</div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 h-100" style="background:#fff; border:1px solid var(--soft-border); border-radius:10px;">
+            <h4 class="mb-2">Mit tegyél most?</h4>
+            <ul class="mb-3">
+              <li>Írd ki röviden a szabályaidat (lemondás, késés, fizetés).</li>
+              <li>Adj mini-űrlapot az időpontkérés elé (2-3 kötelező pipa).</li>
+              <li>Kapcsold be az emlékeztetőket és – ha kell – a letétet.</li>
+            </ul>
+            <p class="mb-3">Szeretnéd, hogy az egészet összerakjam neked? Kapsz kész szövegeket, űrlapot, sablonokat és beállítást.</p>
+            <a href="#jelentkezes" class="btn btn-gold">Megrendelem a szűrési tervet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jelentkezes" class="py-5" style="background:#fff;">
+    <div class="container">
+      <div class="text-center mb-4">
+        <div class="section-hint">Első lépés</div>
+        <h2 class="mt-2">Rendeld meg a szűrési tervet</h2>
+        <p class="mb-1">Hozzáférés kizárólag igazolt, működő szépségipari szakembereknek.</p>
+        <p class="mb-0" style="color:#6c757d;">A jelentkezéshez az alábbi adatok megadása szükséges az ellenőrzéshez: név, vállalkozás/szalon neve és címe, adószám vagy működési engedély száma, elérhetőség (e-mail, telefon), legalább egy nyilvános profil (Instagram/FB/Google Cégem) vagy portfólió link.</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="https://forms.gle/Nw7Gwy9nobiGxE6t6" target="_blank" class="btn btn-gold btn-lg">Jelentkezem ellenőrzésre</a>
+      </div>
+      <div class="text-center mt-2" style="color:#6c757d; font-size:0.95rem;">Ellenőrzés után visszaigazoljuk az időpontot. Fogyasztóknak nem értékesítünk.</div>
+    </div>
+  </section>
+
+  <footer class="footer text-center py-3">
+    <a href="archive/impresszum.html" style="color: var(--gold-2); text-decoration: underline; margin: 0 10px;">Impresszum</a>
+    <span style="color: var(--ink);">|</span>
+    <a href="archive/aszf.html" style="color: var(--gold-2); text-decoration: underline; margin: 0 10px;">ÁSZF</a>
+    <span style="color: var(--ink);">|</span>
+    <a href="archive/adatvedelem.html" style="color: var(--gold-2); text-decoration: underline; margin: 0 10px;">Adatkezelési tájékoztató</a>
+    <span style="color: var(--ink);">|</span>
+    <a href="https://forms.gle/Nw7Gwy9nobiGxE6t6" style="color: var(--gold-2); text-decoration: underline; margin: 0 10px;" target="_blank">Kapcsolat</a>
+    <br>
+    <span style="color: var(--ink); font-size: 0.95rem;">© 2025 Astor. Minden jog fenntartva.</span>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('calcBtn');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var p = parseFloat(document.getElementById('avgPrice').value || 0);
+        var ns = parseFloat(document.getElementById('noShow').value || 0);
+        var lc = parseFloat(document.getElementById('lateCancel').value || 0);
+        var loss = Math.max(0, p * (ns + 0.5 * lc));
+        var out = document.getElementById('calcOut');
+        out.textContent = 'Becsült havi veszteség: ' + new Intl.NumberFormat('hu-HU').format(Math.round(loss)) + ' Ft';
+      });
+    })();
+  </script>
 </body>
 </html>
